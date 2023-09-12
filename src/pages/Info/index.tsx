@@ -59,7 +59,7 @@ const Info = () => {
       <Text style={styles.rule}>
         • Each cell with three neighbors becomes populated.
       </Text>
-      <View style={styles.centerImage}>
+      <View style={[styles.centerImage, { marginBottom: 20 }]}>
         <Image source={FourthExample} style={{ width: 250, height: 100 }} />
       </View>
       <Button title="More Info" onPress={openWikipediaPage} color="#007AFF" />
