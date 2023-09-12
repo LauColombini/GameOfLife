@@ -1,10 +1,6 @@
 import React, { useMemo } from "react";
-import { Image } from "react-native";
 
-// @ts-ignore
-import { default as BoringAvatar } from "react-native-boring-avatars";
-
-import { ContainerItem, Name } from "./styles";
+import { ContainerItem } from "./styles";
 import HomeIcon from "../../assets/svg/HomeIcon";
 import InfoIcon from "../../assets/svg/InfoIcon";
 
@@ -17,17 +13,9 @@ const TabBarButton: React.FC<Props> = ({ active, type }) => {
   const icon = useMemo(() => {
     switch (type) {
       case "HomeTab":
-        return active ? (
-          <HomeIcon width="15" height="15" bgColor="white" />
-        ) : (
-          <HomeIcon width="15" height="15" bgColor="white" />
-        );
+        return <HomeIcon active={active} />;
       case "InfoTab":
-        return active ? (
-          <InfoIcon width="15" height="15" bgColor="white" />
-        ) : (
-          <InfoIcon width="15" height="15" bgColor="white" />
-        );
+        return <InfoIcon active={active} />;
     }
   }, [active, type]);
 
