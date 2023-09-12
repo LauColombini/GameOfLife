@@ -25,7 +25,10 @@ Follow these steps to get started with the project:
 ## Features
 
 ### Main Screen (Home)
+
 [![homescreen](https://i.imgur.com/frZSJzM.png "homescreen")](https://i.imgur.com/frZSJzM.png "homescreen")
+
+[![infoscreen](https://i.imgur.com/9pNthcR.png "infoscreen")](https://i.imgur.com/9pNthcR.png "infoscreen")
 The main screen is the actual game and includes the following features:
 
 - **Game Grid**: Displays the current state of the game on a grid.
