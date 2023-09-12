@@ -7,6 +7,7 @@ import { TabBarNavigation } from "../interfaces/Navigation";
 
 import HomeStackNavigator from "./HomeStackNavigator";
 import TabBarButton from "../components/TabBarButton";
+import InfoStackNavigator from "./InfoStackNavigator";
 
 const Tab = createBottomTabNavigator<TabBarNavigation>();
 
@@ -33,23 +34,38 @@ export const MainTabNavigator = () => {
       <Tab.Screen
         name="HomeTab"
         component={HomeStackNavigator}
-        options={({ route }) => ({
-          tabBarStyle: ((route) => {
-            const routeName = getFocusedRouteNameFromRoute(route) ?? "";
-
+        options={() => ({
+          tabBarStyle: (() => {
             return DEFAULT_TAB_BAR_STYLE;
-          })(route),
+          })(),
+        })}
+        listeners={({ navigation }) => ({
+          tabPress: ({}) => {
+            console.log(navigation.isFocused());
+            if (navigation.isFocused()) {
+              navigation.navigate("HomeTab", {
+                screen: "Home",
+              });
+            }
+          },
         })}
       />
       <Tab.Screen
         name="InfoTab"
-        component={HomeStackNavigator}
-        options={({ route }) => ({
-          tabBarStyle: ((route) => {
-            const routeName = getFocusedRouteNameFromRoute(route) ?? "";
-
+        component={InfoStackNavigator}
+        options={() => ({
+          tabBarStyle: (() => {
             return DEFAULT_TAB_BAR_STYLE;
-          })(route),
+          })(),
+        })}
+        listeners={({ navigation }) => ({
+          tabPress: ({}) => {
+            if (navigation.isFocused()) {
+              navigation.navigate("InfoTab", {
+                screen: "Info",
+              });
+            }
+          },
         })}
       />
     </Tab.Navigator>
